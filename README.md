@@ -18,7 +18,7 @@ Este proyecto es un sistema de gestión de torneos de eSports que tiene como obj
 
 ## 2. Diagrama de Casos de Uso:
 
-- \*\*Descripción de casos de uso:
+**Descripción de casos de uso:**
   - Registrar equipo
     Este caso de uso permite al administrador del sistema crear un nuevo equipo. El objetivo es incorporar la información básica de un equipo para su participación en torneos. PAra iniciar, el sistema debe estar funcionando y el administrador debe haber iniciado sesión. El proceso prinicipal es que el administrador introuduce el nombre del equipo y una descripción opcional. Al confirmar, el sistema guarda esta información. Si el nombre ya existe, el sistema pide al administrador que elija otro. Finalmente el equipo queda registrado en el sistema.
   - Añadir jugadores a un equipo
@@ -37,59 +37,74 @@ Este proyecto es un sistema de gestión de torneos de eSports que tiene como obj
     Este caso de uso permite al administrador actualizar la tabla de clasificación de un torneo basándose en los resultados de las partidas. El propósito es reflejar el progreso de los equipos. El sistema debe estar operativo, el administrador autenticado, y deben existir resultados de partidos registrados para el torneo. El administrador selecciona el torneo y activa la actualización. El sistema calcula la posición de los equipos según los criterios definidos y muestra la nueva clasificación. El resultado es la actualización de la tabla de clasificación del torneo.
   - Asignar premios a los ganadores
     Este caso de uso permite al administrador asignar los premios a los equipos que han ganado un torneo. El propósito es gestionar la entrega de recompensas. El sistema debe estar operativo, el administrador autenticado, y el torneo debe haber finalizado o los ganadores deben ser conocidos. El administrador selecciona el torneo, identifica a los ganadores y asigna los premios correspondientes. El sistema almacena esta información. El resultado es la asignación de los premios a los equipos ganadores.
-    
-- Diagrama de casos de uso para la Gestión de equipos y jugadores:
+
+**Diagrama de casos de uso para la Gestión de equipos y jugadores:**
+
   ![Gestión Equipos y Jugadores UML Showcase](/gestion_equipos_jugadores_esports.drawio.png)
+
 
 ## 3. Identificación de clases y relaciones
 
-- Clases principales
+**Clases principales**
   EQUIPO
+
   JUGADOR
 
-- Distinción Entidad, Control e Interfaz
+**Distinción Entidad, Control e Interfaz**
+
   Entidad: Equipo, Jugador
+
   Control: GestorEquipoJugador
+
   Interfaz: Consola para que el administrador gestione las funcionalidades
 
-- Atributos de cada Clase
+**Atributos de cada Clase**
+
   EQUIPO:
+
 * nombreEquipo(String)
 * descripcion (String, opcional)
 * idEquipo (Identificador único, podría ser un entero o un UUID)
 * jugadores (Una colección, como una lista, de objetos Jugador)
+  
   JUGADOR:
+
 * nombreJugador (String)
 * idJugador (Identificador único, podría ser un entero o un UUID)
 * nick (String, nombre de juego)
 
-- Relaciones entre clases
+**Relaciones entre clases**
   EQUIPO:
-  addJugador
-  eliminarJugador
-  obtenerLista
-  getNombreEquipo
-  setNombreEquipo
-  getDescricion
-  setDescripcion
-  getIdEquipo
+
+  - addJugador
+  - eliminarJugador
+  - obtenerLista
+  - getNombreEquipo
+  - setNombreEquipo
+  - getDescricion
+  - setDescripcion
+  - getIdEquipo
+
   JUGADOR:
-  getNombreJugador
-  setNombreJugador
-  getIdJugador
+
+  - getNombreJugador
+  - setNombreJugador
+  - getIdJugador
+
   GESTOREQUIPOJUGADOR:
-  registrarEquipo
-  addJugadorAEquipo
-  obtenerListaEquipos
-  obtenerEquiposPorId
-  obtenerJugadorPorId
-  obtenerJugadoresdeEquipo
 
-Asociaciones: Un Equipo está asociado con Jugador porque un equipo conoce a los jugadores que lo forman, y un jugador conoce a su equipo.
+  - registrarEquipo
+  - addJugadorAEquipo
+  - obtenerListaEquipos
+  - obtenerEquiposPorId
+  - obtenerJugadorPorId
+  - obtenerJugadoresdeEquipo
 
-Agreagaciones: El equipo tiene jugadores, pero si el equipo se disuelve, los jugadores seguirían existiendo como individuos en el sistema.
+- Asociaciones: Un Equipo está asociado con Jugador porque un equipo conoce a los jugadores que lo forman, y un jugador conoce a su equipo.
 
-Composiciones: Una ronda es una parte esencial de un torneo. Si el torneo no existe, las rondas tampoco tienen sentido en ese contexto específico.
+- Agreagaciones: El equipo tiene jugadores, pero si el equipo se disuelve, los jugadores seguirían existiendo como individuos en el sistema.
+
+- Composiciones: Una ronda es una parte esencial de un torneo. Si el torneo no existe, las rondas tampoco tienen sentido en ese contexto específico.
 
 ![Diagrama de Clases UML Showcase](/diagrama_clases_actividad3.drawio.png)
 
