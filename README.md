@@ -120,4 +120,4 @@ La clase GestorEquipoJugador actúa como una clase de control, encargada de las 
 
 ### Versión
 
-1.0.0
+2.0.0
